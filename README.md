@@ -1,9 +1,9 @@
 # LISP Interpreter (C++)
 
 ## Overview
-This project is a simple LISP interpreter implemented in C++. It supports parsing and evaluating LISP-style expressions using prefix notation.
+This project is a simple LISP interpreter implemented in C++. It parses and evaluates LISP-style prefix expressions and supports variables and user-defined functions.
 
-The interpreter demonstrates core concepts such as tokenization, recursive parsing, and expression evaluation.
+The interpreter demonstrates core concepts such as tokenization, recursive parsing, environments, and function evaluation.
 
 ---
 
@@ -15,66 +15,72 @@ The interpreter demonstrates core concepts such as tokenization, recursive parsi
   - Subtraction (-)
   - Multiplication (*)
   - Division (/)
-- Supports nested expressions
+- Variable support using `define`
+- User-defined functions
+- Function calls with parameters
+- Nested expressions
 - Basic error handling
+- Interactive REPL
 
 ---
 
 ## Example Usage
 
-(+ 2 3)
-=> 5
+```
+(define x 10)
+(+ x 5)
+=> 15
 
-(* 4 5)
-=> 20
+(define (double n) (* n 2))
+(double 6)
+=> 12
 
-(+ 2 (* 3 4))
-=> 14
+(define (square n) (* n n))
+(square 5)
+=> 25
 
-(* (+ 1 2) (+ 3 4))
-=> 21
-
-(- (* 5 5) (+ 10 5))
-=> 10
+(+ (double 4) (square 3))
+=> 17
+```
 
 ---
 
 ## How to Compile
 
+```
 g++ -std=c++17 main.cpp tokenizer.cpp parser.cpp -o lisp
+```
 
 ---
 
 ## How to Run
 
+```
 ./lisp
+```
 
 ---
 
 ## Project Structure
 
+```
 lisp-interpreter/
 │── main.cpp
 │── tokenizer.cpp
 │── tokenizer.h
 │── parser.cpp
 │── parser.h
-
----
-
-## Milestone 1 Status
-- Tokenizer implemented
-- Parser implemented
-- Arithmetic evaluation working
-- Nested expressions supported
+│── README.md
+│── .gitignore
+```
 
 ---
 
 ## Future Improvements
-- Variable definitions using define
-- User-defined functions
-- Enhanced error handling
-- Improved REPL interface
+- Improved error handling and messages
+- Support for conditionals (if)
+- Recursion support for functions
+- Additional LISP features
 
 ---
 
